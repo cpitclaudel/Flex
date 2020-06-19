@@ -1,0 +1,11 @@
+{
+    "extends": "stylelint-config-standard",
+    "rules": {
+        "number-leading-zero": null,
+        "function-comma-space-after": null,
+        "declaration-block-trailing-semicolon": null,
+        "no-descending-specificity": null,
+        "selector-list-comma-newline-after": null,
+        "font-family-no-missing-generic-family-keyword": null
+    }
+}

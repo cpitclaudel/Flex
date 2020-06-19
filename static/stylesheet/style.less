@@ -5,6 +5,10 @@ html, body {
   height: 100%;
 }
 
+p, pre {
+  margin: 1em 0;
+}
+
 h1,
 h2,
 h3,
@@ -15,38 +19,38 @@ h6 {
   line-height: 1.1;
 }
 
-h1{
-  font-size: 2.4em
+h1 {
+  font-size: 2.4rem
 }
 
 h2 {
-  font-size: 2em
+  font-size: 2rem
 }
 
 h3 {
-  font-size: 1.6em
+  font-size: 1.6rem
 }
 
 h4 {
-  font-size: 1.36em
+  font-size: 1.36rem
 }
 
 h5 {
-  font-size: 1.2em
+  font-size: 1.25rem
 }
 
 h6 {
-  font-size: 1.1em
+  font-size: 1.15rem
 }
 
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
   background-color: @body-bg;
   color: @text-color;
   font-family: @sans;
-  font-size: 1.02em;
-  line-height: 1.2em;
+  font-size: 1.1rem;
+  line-height: 1.3;
 }
 
 a {
@@ -59,10 +63,9 @@ a:hover {
 }
 
 hr {
-  color: @light-grey;
-  background-color: @light-grey;
-  height: 1px;
   border: none;
+  border-top: thin solid @light-grey;
+  height: 0;
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -109,13 +112,14 @@ aside {
         display: inline;
         line-height: 1.6em;
         font-size: 1.28em;
-        text-transform: lowercase;
       }
     }
   }
 }
 
 main {
+  margin: auto;
+
   nav {
     text-align: center;
     text-transform: uppercase;
@@ -156,7 +160,7 @@ main {
   }
 
   article {
-    margin: 0 8% 2% 8%;
+    margin: 2rem;
 
     header {
       h1, h2 {
@@ -177,16 +181,17 @@ main {
       }
     }
 
-    code, kbd, samp, pre {
+    pre, code, kbd, samp, tt {
       font-family: @mono;
     }
 
-    blockquote, pre {
+    samp, tt {
+      padding: 0.05em 0.15em;
+    }
+
+    blockquote, pre, tt {
       background-color: rgba(128,128,128,0.05);
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      border-left: 8px solid rgba(128,128,128,0.075);
-      border-left-width: 10px;
+      border-radius: 0.15em;
     }
 
     blockquote {
@@ -196,8 +201,9 @@ main {
     }
 
     pre {
-      padding: 4px;
+      padding: 0.25em 0.5em;
       font-size: .9em;
+      text-align: left;
       overflow-x: auto;
     }
 
@@ -239,7 +245,7 @@ main {
       border-spacing: 0;
 
       thead:first-child tr:first-child th {
-         border-top: 0;
+        border-top: 0;
       }
 
       th, td {
@@ -256,7 +262,7 @@ main {
 
       td {
         border-style: none;
-        padding: 0px;
+        padding: 0;
       }
 
       td.linenos {
@@ -526,195 +532,92 @@ ul.social {
   margin-left: 5%;
 }
 
-//
-// Desktop
-//
+// Admonition, topic, sidebar
 
-@media screen and (min-width: 768px) {
-  aside {
-    width: 25vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-
-    div {
-      padding: 36px 18px;
-
-      nav {
-        ul {
-          li {
-            padding: 0 !important;
-            display: block;
-          }
-        }
-      }
-
-      ul.social {
-        padding-top: 32px;
-      }
-    }
-  }
-
-  main {
-    width: 75vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 25vw;
-    overflow-x: hidden;
-
-    article {
-
-      &.single {
-        min-height: 80vh;
-      }
-
-      ul.list {
-        li {
-          padding: 2px;
-        }
-      }
-    }
-  }
-
-  .ads-aside {
-    height: 250px;
-  }
-
-  .ads-responsive {
-    height: 90px;
-  }
+div.admonition, .sidebar, .topic {
+  border-left: 0.5em solid @admonition-generic-bg-color;
+  padding: 0 0 0 0.5em;
 }
 
-// Admonition
-div.admonition {
-  margin-bottom: 2.5rem;
-  border-radius: 4px;
-  padding: 0.5em 1.25em 1.25em 1.25em;
-
-  p.admonition-title::before {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    font-family: "Font Awesome 5 Free";
-  }
-
-  p.admonition-title {
-    font-weight: 600;
-    line-height: 1.25em;
-    margin-bottom: 1.25em;
-    margin-top: inherit;
-  }
-
-  p, div, pre {
-    margin-bottom: 0;
-  }
-}
-
-div.admonition {
+.admonition-title, .sidebar::before, .topic::before {
+  display: inline-block;
+  font-weight: 600;
+  margin-top: inherit;
+  transform: translate(-100%, -100%) translateX(-0.5em) translateX(-0.5em) rotate(270deg);
+  transform-origin: bottom right;
+  position: absolute;
   color: @admonition-generic-color;
-  background-color: @admonition-generic-bg-color;
 }
 
-div.admonition.attention {
-  p.admonition-title::before {
-    content: @admonition-attention-icon;
+.sidebar::before {
+  content: "Aside";
+}
+
+.topic::before {
+  content: ""
+}
+
+div.sidebar .sidebar-title, div.topic .topic-title {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.admonition-colors(@color, @bg-color) {
+  .admonition-title {
+    color: @color;
   }
 
-  color: @admonition-attention-color;
-  background-color: @admonition-attention-bg-color;
+  border-color: @bg-color;
 }
 
 div.admonition.caution {
-  p.admonition-title::before {
-    content: @admonition-caution-icon;
-  }
-
-  color: @admonition-caution-color;
-  background-color: @admonition-caution-bg-color;
+  .admonition-colors(@admonition-caution-color, @admonition-caution-bg-color);
 }
 
 div.admonition.danger {
-  p.admonition-title::before {
-    content: @admonition-danger-icon;
-  }
-
-  color: @admonition-danger-color;
-  background-color: @admonition-danger-bg-color;
+  .admonition-colors(@admonition-danger-color, @admonition-danger-bg-color);
 }
 
 div.admonition.error {
-  p.admonition-title::before {
-    content: @admonition-error-icon;
-  }
-
-  color: @admonition-error-color;
-  background-color: @admonition-error-bg-color;
+  .admonition-colors(@admonition-error-color, @admonition-error-bg-color);
 }
 
 div.admonition.hint {
-  p.admonition-title::before {
-    content: @admonition-hint-icon;
-  }
-
-  color: @admonition-hint-color;
-  background-color: @admonition-hint-bg-color;
+  .admonition-colors(@admonition-hint-color, @admonition-hint-bg-color);
 }
 
 div.admonition.important {
-  p.admonition-title::before {
-    content: @admonition-important-icon;
-  }
-
-  color: @admonition-important-color;
-  background-color: @admonition-important-bg-color;
+  .admonition-colors(@admonition-important-color, @admonition-important-bg-color);
 }
 
 div.admonition.note {
-  p.admonition-title::before {
-    content: @admonition-note-icon;
-  }
-
-  color: @admonition-note-color;
-  background-color: @admonition-note-bg-color;
+  .admonition-colors(@admonition-note-color, @admonition-note-bg-color);
 }
 
 div.admonition.tip {
-  p.admonition-title::before {
-    content: @admonition-tip-icon;
-  }
-
-  color: @admonition-tip-color;
-  background-color: @admonition-tip-bg-color;
+  .admonition-colors(@admonition-tip-color, @admonition-tip-bg-color);
 }
 
 div.admonition.warning {
-  p.admonition-title::before {
-    content: @admonition-warning-icon;
-  }
-
-  color: @admonition-warning-color;
-  background-color: @admonition-warning-bg-color;
+  .admonition-colors(@admonition-warning-color, @admonition-warning-bg-color);
 }
 
 div.figure {
   font-size: 90%;
   color: @figure-color;
-  
+
   img {
     vertical-align: middle;
     line-height: 1;
     display: inline;
   }
-  
+
   p {
     margin-top: 0;
     margin-bottom: 0;
   }
-  
+
   p.caption {
     font-style: italic;
   }
