@@ -25,15 +25,7 @@
       {{ translations.translations_for(article) }}
     {% endif %}
     <h1 id="{{ article.slug }}">{{ article.title }}</h1>
-    <p>
-      {{ _('Posted on %(when)s in %(category)s',
-           when=article.locale_date,
-           category='<a href="%s/%s">%s</a>'|format(SITEURL, article.category.url, article.category)|safe) }}
-
-      {% if 'post_stats' in PLUGINS %}
-        &#8226; {{ _('%(minutes)s min read', minutes=article.stats['read_mins']) }}
-      {% endif %}
-    </p>
+    {% include 'article_info.html' %}
   </header>
 
   {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.article_top %}
@@ -46,9 +38,9 @@
     </script>
   {% endif %}
 
-  <div>
+  <section>
     {{ article.content }}
-  </div>
+  </section>
   <div class="tag-cloud">
     <p>
       {% if article.tags %}

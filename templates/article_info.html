@@ -1,0 +1,23 @@
+<p class="article-info">
+  Posted
+  {% if article.authors %}
+    by
+    <span class="authors">
+      {% for author in article.authors %}
+        <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{{ ", " if not loop.last }}
+      {% endfor %}
+    </span>
+  {% endif %}
+  on <abbr class="published" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
+  in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.
+  {% if article.modified %}
+    Last updated on <abbr class="modified" title="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</abbr>.
+  {% endif %}
+
+  {% block tags %}
+  {% endblock tags %}
+
+  {% if 'post_stats' in PLUGINS %}
+    &#8226; {{ _('%(minutes)s min read', minutes=article.stats['read_mins']) }}
+  {% endif %}
+</p>
