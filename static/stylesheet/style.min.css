@@ -156,7 +156,7 @@ main article tt {
 }
 main article blockquote,
 main article pre,
-main article tt {
+main article section tt {
   background-color: rgba(128, 128, 128, 0.05);
   border-radius: 0.15em;
 }
