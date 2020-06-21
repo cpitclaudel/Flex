@@ -3,10 +3,6 @@ body {
   width: 100%;
   height: 100%;
 }
-p,
-pre {
-  margin: 1em 0;
-}
 h1,
 h2,
 h3,
@@ -41,7 +37,7 @@ body {
   color: #242121;
   font-family: 'Source Sans Pro', 'Roboto', 'Open Sans', 'Liberation Sans', 'DejaVu Sans', 'Verdana', 'Helvetica', 'Arial', sans-serif;
   font-size: 1.1rem;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 a {
   color: #D9411E;
@@ -139,6 +135,14 @@ main article header .translations {
 main article header .translations .active {
   font-weight: 600;
 }
+main article p,
+main article pre,
+main article ul {
+  margin: 1em 0;
+}
+main article ul li {
+  margin: 0.5em 0;
+}
 main article pre,
 main article code,
 main article kbd,
@@ -206,7 +210,6 @@ main article table thead:first-child tr:first-child th {
 main article table th,
 main article table td {
   padding: 8px;
-  line-height: 20px;
   vertical-align: top;
   border-top: 1px solid #ddd;
 }
