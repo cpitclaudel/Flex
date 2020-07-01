@@ -148,6 +148,13 @@ main article header .translations {
 main article header .translations .active {
   font-weight: 600;
 }
+main article .summary {
+  font-style: italic;
+}
+main article .preview {
+  border-left: thick solid #eeeeec;
+  padding-left: 1rem;
+}
 main article p,
 main article pre,
 main article ul {
