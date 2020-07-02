@@ -167,16 +167,19 @@ main article pre,
 main article code,
 main article kbd,
 main article samp,
-main article tt {
+main article tt,
+main article .docutils.literal {
   font-family: 'Source Code Pro', 'Consolas', 'Liberation Mono', 'DejaVu Sans Mono', monospace;
 }
 main article samp,
-main article tt {
+main article tt,
+main article .docutils.literal {
   padding: 0.05em 0.15em;
 }
 main article blockquote,
 main article pre,
-main article section tt {
+main article section tt,
+main article section .docutils.literal {
   background-color: rgba(128, 128, 128, 0.05);
   border-radius: 0.15em;
 }
@@ -226,6 +229,12 @@ main article table {
 }
 main article table thead:first-child tr:first-child th {
   border-top: 0;
+}
+main article table th *:first-child {
+  margin-top: 0;
+}
+main article table th *:last-child {
+  margin-bottom: 0;
 }
 main article table th,
 main article table td {
@@ -309,6 +318,9 @@ a.btn:hover {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+table.align-center {
+  display: table;
 }
 .float-left {
   float: left;
