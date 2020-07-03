@@ -206,11 +206,12 @@ main {
       font-family: @mono;
     }
 
-    samp, tt, .docutils.literal {
+    samp, tt, code, .docutils.literal {
       padding: 0.05em 0.15em;
+      // border: thin solid #e1e1e8;
     }
 
-    blockquote, pre, section tt, section .docutils.literal {
+    blockquote, pre, section tt, section code, section .docutils.literal {
       background-color: rgba(128,128,128,0.05);
       border-radius: 0.15em;
     }
@@ -245,16 +246,6 @@ main {
       margin: 0 .1em;
       white-space: nowrap;
       font-size: .78em;
-    }
-
-    *:not(pre) > code {
-      font-size: .8em;
-      white-space: nowrap;
-      color: #c25;
-      padding: 1px 3px;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-      border-radius: 3px;
     }
 
     .comment-count {

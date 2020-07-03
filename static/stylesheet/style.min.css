@@ -173,12 +173,14 @@ main article .docutils.literal {
 }
 main article samp,
 main article tt,
+main article code,
 main article .docutils.literal {
   padding: 0.05em 0.15em;
 }
 main article blockquote,
 main article pre,
 main article section tt,
+main article section code,
 main article section .docutils.literal {
   background-color: rgba(128, 128, 128, 0.05);
   border-radius: 0.15em;
@@ -210,15 +212,6 @@ main article kbd {
   margin: 0 0.1em;
   white-space: nowrap;
   font-size: 0.78em;
-}
-main article *:not(pre) > code {
-  font-size: 0.8em;
-  white-space: nowrap;
-  color: #c25;
-  padding: 1px 3px;
-  background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
-  border-radius: 3px;
 }
 main article .comment-count {
   font-size: 0.8em;
