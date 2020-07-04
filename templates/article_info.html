@@ -18,6 +18,12 @@
   {% endblock tags %}
 
   {% if 'post_stats' in PLUGINS %}
-    &#8226; {{ _('%(minutes)s min read', minutes=article.stats['read_mins']) }}
+    &#8226; {{ _('%(minutes)s min read', minutes=article.stats['read_mins']) }}.
   {% endif %}
+
+  {% block edit %}
+    {% if GITHUB_PROJECT %}
+      Suggest <a href="https://github.com/{{ GITHUB_PROJECT }}/blob/master/content/{{ article.relative_source_path|urlencode }}">edits</a> or <a href="https://github.com/{{ GITHUB_PROJECT }}/issues/new?labels=comments&title={{ article.relative_source_path|urlencode }}">corrections</a>.
+    {% endif %}
+  {% endblock edit %}
 </p>
